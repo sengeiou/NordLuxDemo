@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.test.nordluxdemo">
+
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.Base">
+        <activity android:name=".ble.mesh.MeshDeviceInfoActivity"></activity>
+        <activity android:name=".ble.mesh.MeshDeviceProvisionActivity" />
+        <activity android:name=".ble.BleMainActivity" />
+        <activity android:name=".home.moods.edit.MoodsEditActivity" />
+        <activity android:name=".home.moods.newset.MoodsNewActivity" />
+        <activity android:name=".romote.edit.RemoteEditActivity" />
+        <activity android:name=".home.add.room.HomeAddRoomActivity" />
+        <activity android:name=".home.add.group.HomeAddGroupActivity" />
+        <activity android:name=".home.add.product.HomeAddProductActivity" />
+        <activity android:name=".home.setting.HomeSettingActivity" />
+        <activity android:name=".sensor.edit.SensorEditActivity" />
+        <activity android:name=".program.click.ProgramClickActivity" />
+        <activity android:name=".home.click.ClickActivity" />
+        <activity android:name=".setting.room.SettingRoomMenuActivity" />
+        <activity android:name=".home.moods.MoodsMenuActivity" />
+        <activity android:name=".update.UpdateMenuActivity" />
+        <activity android:name=".setting.SettingMenuActivity" />
+        <activity android:name=".romote.RemoteMenuActivity" />
+        <activity android:name=".sensor.SensorMenuActivity" />
+        <activity android:name=".bridge.BridgeMenuActivity" />
+        <activity android:name=".welcome.add.AddProductActivity" />
+        <activity android:name=".welcome.GuideActivity" />
+        <activity android:name=".login.LoginActivity" />
+        <activity android:name=".program.vacation.edit.VacationEditActivity" />
+        <activity android:name=".program.timer.newset.TimerNewActivity" />
+        <activity android:name=".program.timer.edit.TimerEditActivity" />
+        <activity android:name=".program.schedule.newset.ScheduleNewActivity" />
+        <activity android:name=".program.schedule.edit.ScheduleEditActivity" />
+        <activity android:name=".program.vacation.VacationActivity" />
+        <activity android:name=".program.timer.TimerMenuActivity" />
+        <activity android:name=".program.schedule.ScheduleMenuActivity" />
+        <activity android:name=".program.MenuActivity" />
+        <activity android:name=".home.HomeActivity" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

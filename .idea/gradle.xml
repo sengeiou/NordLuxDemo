@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="PLATFORM" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="gradleJvm" value="JDK" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/Airoha-Native-Mesh-release" />
+            <option value="$PROJECT_DIR$/AppRC" />
+            <option value="$PROJECT_DIR$/Library" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/libFota" />
+            <option value="$PROJECT_DIR$/libMesh" />
+            <option value="$PROJECT_DIR$/libMeshParam" />
+            <option value="$PROJECT_DIR$/libNativeMesh" />
+            <option value="$PROJECT_DIR$/libs" />
+          </set>
+        </option>
+        <option name="resolveModulePerSourceSet" value="false" />
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,5 @@
+include ':app'
+rootProject.name = "NordLuxDemo"
+include ':Library', ':libMesh', ':libMeshParam', ':libNativeMesh', ':Airoha-Native-Mesh-release', ':AppRC'
+include 'libFota'
+include 'libs'

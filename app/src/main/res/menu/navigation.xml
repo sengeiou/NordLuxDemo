@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group
+        android:id="@+id/group1"
+        android:checkableBehavior="single">
+        <item
+            android:id="@+id/single_1"
+            android:icon="@mipmap/ic_menu_home"
+            android:title="Home" />
+        <item
+            android:id="@+id/single_2"
+            android:icon="@mipmap/ic_menu_program"
+            android:title="Program" />
+        <item
+            android:id="@+id/single_3"
+            android:icon="@mipmap/ic_menu_bridge"
+            android:title="Bridge" />
+        <item
+            android:id="@+id/single_4"
+            android:icon="@mipmap/ic_menu_sensor"
+            android:title="Sensor" />
+        <item
+            android:id="@+id/single_5"
+            android:icon="@mipmap/ic_menu_bridge"
+            android:title="Remote Controller" />
+
+
+        <item
+            android:id="@+id/single_6"
+            android:icon="@mipmap/ic_menu_va"
+            android:title="Voice Assistant" />
+        <item
+            android:id="@+id/single_7"
+            android:icon="@mipmap/ic_menu_join"
+            android:title="Scan QR-code" />
+        <item
+            android:id="@+id/single_8"
+            android:icon="@mipmap/ic_menu_sharing"
+            android:title="Sharing" />
+        <item
+            android:id="@+id/single_9"
+            android:icon="@mipmap/ic_menu_seting"
+            android:title="Setting" />
+        <item
+            android:id="@+id/single_10"
+            android:icon="@mipmap/ic_menu_fu"
+            android:title="Firmware Update" />
+        <item
+            android:id="@+id/single_11"
+            android:icon="@mipmap/ic_menu_help"
+            android:title="Help" />
+
+
+    </group>
+</menu>

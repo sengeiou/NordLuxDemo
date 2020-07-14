@@ -1,0 +1,24 @@
+# Gradle cache files
+/.gradle
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# IntelliJ cache files
+/.idea
+*.iml
+
+# build output
+/build
+
+# External native build folder generated in Android Studio 2.2 and later
+/.externalNativeBuild
+
+# python cache
+/__pycache__
+
+# used for Android Studio on MAC OS
+.DS_Store
+
+
+
