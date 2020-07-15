@@ -12,8 +12,9 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
-import android.support.multidex.BuildConfig;
 import android.util.Log;
+
+import androidx.multidex.BuildConfig;
 
 import com.airoha.btdlib.constant.CommonUUID;
 import com.airoha.btdlib.util.ByteHelper;

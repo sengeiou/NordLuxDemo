@@ -16,11 +16,14 @@
 
 package com.airoha.libmesh.core;
 
-import android.support.annotation.Nullable;
+
 import android.os.ParcelUuid;
 import android.util.ArrayMap;
 import android.util.Log;
 import android.util.SparseArray;
+
+import androidx.annotation.Nullable;
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.UUID;
