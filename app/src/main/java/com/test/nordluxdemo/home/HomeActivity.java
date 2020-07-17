@@ -27,11 +27,14 @@ import com.google.android.material.navigation.NavigationView;
 
 import com.test.nordluxdemo.R;
 import com.test.nordluxdemo.ble.BleMainActivity;
+import com.test.nordluxdemo.ble.mesh.MeshMainActivity;
+import com.test.nordluxdemo.ble.mesh.MeshScanActivity;
 import com.test.nordluxdemo.bridge.BridgeMenuActivity;
 import com.test.nordluxdemo.home.add.group.HomeAddGroupActivity;
 import com.test.nordluxdemo.home.add.product.HomeAddProductActivity;
 import com.test.nordluxdemo.home.add.room.HomeAddRoomActivity;
 import com.test.nordluxdemo.program.MenuActivity;
+import com.test.nordluxdemo.program.click.ProgramClickActivity;
 import com.test.nordluxdemo.romote.RemoteMenuActivity;
 import com.test.nordluxdemo.sensor.SensorMenuActivity;
 import com.test.nordluxdemo.setting.SettingMenuActivity;
@@ -269,7 +272,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //Toast.makeText(HomeActivity.this, "点击添加灯泡", Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(HomeActivity.this, BleMainActivity.class);
+                Intent intent=new Intent(HomeActivity.this, MeshScanActivity.class);
                 startActivity(intent);
 
             }

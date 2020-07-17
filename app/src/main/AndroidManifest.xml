@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.test.nordluxdemo"
     xmlns:tools="http://schemas.android.com/tools"
-    >
+    package="com.test.nordluxdemo">
 
+    <uses-sdk tools:overrideLibrary="com.airoha.libmeshparam"/>
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
         android:allowBackup="true"
@@ -15,12 +19,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme.Base"
-
-        android:name="qwww"
-        tools:replace="android:name">
-        <activity android:name=".ble.mesh.MeshDeviceInfoActivity"></activity>
-        <activity android:name=".ble.mesh.MeshDeviceProvisionActivity" />
-        <activity android:name=".ble.BleMainActivity" />
+     >
+         <activity android:name=".ble.mesh.MeshDeviceInfoActivity"></activity>
+         <activity android:name=".ble.mesh.MeshDeviceProvisionActivity" />
+        <activity android:name=".ble.mesh.BaseActivity" />
+         <activity android:name=".ble.BleMainActivity" />
+         <activity android:name=".ble.mesh.MeshMainActivity" />
+         <activity android:name=".ble.mesh.MeshNetworkListActivity" />
+         <activity android:name=".ble.mesh.MeshScanActivity" />
+         <activity android:name=".ble.mesh.MeshDeviceListActivity" />
+         <activity android:name=".ble.mesh.MeshDeviceConfigActivity" />
         <activity android:name=".home.moods.edit.MoodsEditActivity" />
         <activity android:name=".home.moods.newset.MoodsNewActivity" />
         <activity android:name=".romote.edit.RemoteEditActivity" />
@@ -58,6 +66,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <service android:name=".ble.mesh.BluetoothLeService"/>
     </application>
 
 </manifest>

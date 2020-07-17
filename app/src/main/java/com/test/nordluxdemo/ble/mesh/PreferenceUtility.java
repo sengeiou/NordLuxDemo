@@ -26,25 +26,6 @@ public class PreferenceUtility {
     private static final String MESH_IV_INDEX = "iv_index";
     private static final String MESH_FIRST_RUN_APP_STATUS = "first_run_app_status";
 
-//    public static void saveIndexCounter(Context context, int index, boolean isNet) {
-//        SharedPreferences settings = context.getSharedPreferences(MESH_DATA, 0);
-//        SharedPreferences.Editor editor = settings.edit();
-//        if (isNet) {
-//            editor.putInt(MESH_NETKEYINDEX_COUNTER, index);
-//        } else {
-//            editor.putInt(MESH_APPKEYINDEX_COUNTER, index);
-//        }
-//        editor.commit();
-//    }
-//
-//    public static int getIndexCounter(Context context, boolean isNet) {
-//        SharedPreferences settings = context.getSharedPreferences(MESH_DATA, 0);
-//        if (isNet) {
-//            return settings.getInt(MESH_NETKEYINDEX_COUNTER, 0);
-//        } else {
-//            return settings.getInt(MESH_APPKEYINDEX_COUNTER, 0);
-//        }
-//    }
 
     public static void saveFirstRunAppStatus(Context context, boolean status){
         SharedPreferences settings = context.getSharedPreferences(MESH_DATA, 0);

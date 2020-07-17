@@ -304,33 +304,33 @@ public class MeshUtils {
     }
 
     public static byte BLE_MESH_IV_UPDATE_STATE_NORMAL = 0x00;
-//    public static int initMesh(BluetoothLeService myService, boolean isFirstRunApp) {
-//
-//        int ret = myService.getAirohaMeshMgr().getMeshCore().init(FLASH_FILE_NAME, MeshUtils.DEV_UUID);
-//
-//        if(isFirstRunApp && isFirstRunApp){
-//            ret = myService.getAirohaMeshMgr().getMeshConfig().setIvIndex(0, BLE_MESH_IV_UPDATE_STATE_NORMAL);
-//        }
-//        if (ret == 0) {
-//            ret = myService.getAirohaMeshMgr().getMeshConfig().setProvisionerAddr(MeshUtils.PROVISIONER_ADDR);
-//        }
-//
-//        if (ret == 0) {
-//            ret = myService.getAirohaMeshMgr().getMeshConfig().addNetKey(MeshUtils.NET_KEY, Short.valueOf(MeshUtils.NET_KEY_INDEX));
-//        }
-//
-//        if (ret == 0) {
-//            ret = myService.getAirohaMeshMgr().getMeshConfig().addAppKey(Short.valueOf(MeshUtils.NET_KEY_INDEX), MeshUtils.APP_KEY, Short.valueOf(MeshUtils.APP_KEY_INDEX));
-//        }
-//
-//        if (ret == 0) {
-//            for (MeshUtils.PD_INFO pdInfo : MeshUtils.gPdInfoList) {
-//                ret = myService.getAirohaMeshMgr().getMeshConfig().addDevKey(pdInfo.mDeviceKey, pdInfo.mUnicastAddr);
-//            }
-//        }
-//
-//        return ret;
-//    }
+    public static int initMesh(BluetoothLeService myService, boolean isFirstRunApp) {
+
+        int ret = myService.getAirohaMeshMgr().getMeshCore().init(FLASH_FILE_NAME, MeshUtils.DEV_UUID);
+
+        if(isFirstRunApp && isFirstRunApp){
+            ret = myService.getAirohaMeshMgr().getMeshConfig().setIvIndex(0, BLE_MESH_IV_UPDATE_STATE_NORMAL);
+        }
+        if (ret == 0) {
+            ret = myService.getAirohaMeshMgr().getMeshConfig().setProvisionerAddr(MeshUtils.PROVISIONER_ADDR);
+        }
+
+        if (ret == 0) {
+            ret = myService.getAirohaMeshMgr().getMeshConfig().addNetKey(MeshUtils.NET_KEY, Short.valueOf(MeshUtils.NET_KEY_INDEX));
+        }
+
+        if (ret == 0) {
+            ret = myService.getAirohaMeshMgr().getMeshConfig().addAppKey(Short.valueOf(MeshUtils.NET_KEY_INDEX), MeshUtils.APP_KEY, Short.valueOf(MeshUtils.APP_KEY_INDEX));
+        }
+
+        if (ret == 0) {
+            for (MeshUtils.PD_INFO pdInfo : MeshUtils.gPdInfoList) {
+                ret = myService.getAirohaMeshMgr().getMeshConfig().addDevKey(pdInfo.mDeviceKey, pdInfo.mUnicastAddr);
+            }
+        }
+
+        return ret;
+    }
 
     public static String bytesToHexString(byte[] src) {
         StringBuilder stringBuilder = new StringBuilder("");

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/layout_pdevice_RightArea"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_pdevice_Config"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:text="Config"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_pdevice_DevInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/layoutRightArea"
+        android:layout_margin="5dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView_pdevice_device_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="null"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView_pdevice_bdAddr"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_pdevice_device_name"
+            android:text="null"
+            android:textSize="14dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textView_pdevice_bdAddr"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Unicast Addr: "
+                android:textSize="12dp" />
+
+            <TextView
+                android:id="@+id/textView_pdevice_uniAddr"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:text="null"/>
+        </LinearLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

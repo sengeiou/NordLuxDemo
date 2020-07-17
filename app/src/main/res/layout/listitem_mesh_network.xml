@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/layoutRightArea"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_weight="1"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+
+
+
+        <Button
+            android:id="@+id/btn_MeshNetworkDevices"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Devices"
+            android:textSize="14dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layout_network_LeftArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@+id/layoutRightArea"
+        android:layout_margin="5dp"
+        android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView_network_id"
+                android:layout_width="30dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="16dp"
+                android:text="0"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/textView_network_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:text="null"/>
+
+            <TextView
+                android:id="@+id/textView_network_key"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView_network_name"
+                android:textSize="14dp"
+                android:text="null" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

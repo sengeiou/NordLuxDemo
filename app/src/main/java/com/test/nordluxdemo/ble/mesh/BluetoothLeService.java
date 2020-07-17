@@ -75,7 +75,7 @@ public class BluetoothLeService extends Service {
     }
 
     public class LocalBinder extends Binder {
-        BluetoothLeService getService() {
+        public BluetoothLeService getService() {
             return BluetoothLeService.this;
         }
     }
@@ -109,39 +109,7 @@ public class BluetoothLeService extends Service {
     }
 
 
-//    public void setForeground(String strUpate){
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-//            NotificationChannel channel = new NotificationChannel(strUpate, strUpate, NotificationManager.IMPORTANCE_LOW);
-//
-//            NotificationManager manager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-//            if (manager == null)
-//                return;
-//            manager.createNotificationChannel(channel);
-//
-//            Notification notification = new NotificationCompat.Builder(this, strUpate)
-//                    .setContentTitle(strUpate)
-//                    .setAutoCancel(true)
-//                    .setCategory(Notification.CATEGORY_SERVICE)
-//                    .setOngoing(true)
-//                    .setPriority(NotificationManager.IMPORTANCE_LOW)
-//                    .build();
-//
-//            startForeground(1234, notification);
-//        }
-//        else {
-//            Intent resultIntent = new Intent(this, DeviceControlActivity.class);
-//            resultIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-//
-//            //Create the notification object through the builder
-//            Notification noti = new Notification.Builder(this)
-//                    .setContentTitle(getResources().getString(R.string.app_name))
-//                    .setContentText(strUpate)
-//                    .setSmallIcon(R.drawable.ic_launcher).build();
-//
-//            // call startForeground
-//            startForeground(1234, noti);
-//        }
-//    }
+
 
     public AirohaLink getAirohaLink(){
         return mAirohaLink;

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/label_state"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/connection_state"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="right"
+            android:text="@string/disconnected" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/listView_log"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/log_shape"
+        android:stackFromBottom="true"
+        android:transcriptMode="alwaysScroll"
+        android:layout_weight="5" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_weight="3">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:text="invite_provisioning"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:textSize="18dp"/>-->
+                <!---->
+                <!--<Button-->
+                    <!--android:id="@+id/btn_provision_invite_provisioning"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:text="Exec" />-->
+
+            <!--</RelativeLayout>-->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:text="invite_start_provisioning"
+                    android:textStyle="bold"
+                    android:textSize="18dp"/>
+
+                <Button
+                    android:id="@+id/btn_provision_invite_start_provisioning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="Exec" />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:text="ali_invite_provisioning"
+                    android:textStyle="bold"
+                    android:textSize="18dp"/>
+
+                <Button
+                    android:id="@+id/btn_provision_ali_invite_provisioning"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="Exec" />
+
+            </RelativeLayout>
+
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:text="send_invite"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:textSize="18dp"/>-->
+                <!--<Button-->
+                    <!--android:id="@+id/btn_provision_send_invite"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:text="Exec" />-->
+
+            <!--</RelativeLayout>-->
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:text="send_start"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:textSize="18dp"/>-->
+                <!--<Button-->
+                    <!--android:id="@+id/btn_provision_send_start"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:text="Exec" />-->
+
+            <!--</RelativeLayout>-->
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:text="send_public_key"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:textSize="18dp"/>-->
+                <!--<Button-->
+                    <!--android:id="@+id/btn_provision_send_public_key"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:text="Exec" />-->
+
+            <!--</RelativeLayout>-->
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:text="send_confirmation"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:textSize="18dp"/>-->
+                <!--<Button-->
+                    <!--android:id="@+id/btn_provision_send_confirmation"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:text="Exec" />-->
+
+            <!--</RelativeLayout>-->
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:text="send_protocol_random"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:textSize="18dp"/>-->
+                <!--<Button-->
+                    <!--android:id="@+id/btn_provision_send_protocol_random"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:text="Exec" />-->
+
+            <!--</RelativeLayout>-->
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:text="send_data"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:textSize="18dp"/>-->
+                <!--<Button-->
+                    <!--android:id="@+id/btn_provision_send_data"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:text="Exec" />-->
+
+            <!--</RelativeLayout>-->
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:text="send_complete"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:textSize="18dp"/>-->
+                <!--<Button-->
+                    <!--android:id="@+id/btn_provision_send_complete"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:text="Exec" />-->
+
+            <!--</RelativeLayout>-->
+            <!--<RelativeLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:layout_centerVertical="true"-->
+                    <!--android:text="send_failed"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:textSize="18dp"/>-->
+                <!--<Button-->
+                    <!--android:id="@+id/btn_provision_send_failed"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:text="Exec" />-->
+
+            <!--</RelativeLayout>-->
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

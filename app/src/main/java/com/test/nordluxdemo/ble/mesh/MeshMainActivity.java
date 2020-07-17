@@ -1,7 +1,4 @@
-package com.test.nordluxdemo.welcome;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
+package com.test.nordluxdemo.ble.mesh;
 
 import android.Manifest;
 import android.app.Activity;
@@ -27,6 +24,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Toast;
+
+import androidx.core.app.ActivityCompat;
 
 import com.airoha.libmesh.listener.MeshConfigurationModelListener;
 import com.airoha.libmesh.listener.MeshProvisionListener;
@@ -55,15 +54,6 @@ import com.airoha.libmeshparam.prov.ble_mesh_evt_prov_ali_confirmation_device;
 import com.airoha.libmeshparam.prov.ble_mesh_evt_prov_ali_response;
 import com.airoha.libmeshparam.prov.ble_mesh_prov_capabilities_t;
 import com.test.nordluxdemo.R;
-import com.test.nordluxdemo.ble.mesh.BaseActivity;
-import com.test.nordluxdemo.ble.mesh.BluetoothLeService;
-import com.test.nordluxdemo.ble.mesh.MeshMainActivity;
-import com.test.nordluxdemo.ble.mesh.MeshNetworkListActivity;
-import com.test.nordluxdemo.ble.mesh.MeshScanActivity;
-import com.test.nordluxdemo.ble.mesh.MeshUtils;
-import com.test.nordluxdemo.ble.mesh.PreferenceUtility;
-import com.test.nordluxdemo.login.LoginActivity;
-import com.test.nordluxdemo.welcome.add.AddProductActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -71,88 +61,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
-/*
-* 引导页面，选择使用蓝牙或使用网关
-* */
-public class GuideActivity extends BaseActivity implements MeshConfigurationModelListener, MeshProvisionListener {
-
-    private View blueTooth,bridge;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_guide);
-        //初始化控件（找到每个控件id，并赋值到本地控件）
-        initView();
-        //控件添加单机事件
-        initListener();
-        mContext = this;
-
-        final BluetoothManager bluetoothManager =
-                (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
-        mBluetoothAdapter = bluetoothManager.getAdapter();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            mBluetoothLeScanner = mBluetoothAdapter.getBluetoothLeScanner();
-        }
-
-
-        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)) {
-            Toast.makeText(this, "ble_not_supported", Toast.LENGTH_SHORT).show();
-        }
-
-        mServiceIntent = new Intent(this, BluetoothLeService.class);
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            startForegroundService(mServiceIntent);
-        } else {
-            startService(mServiceIntent);
-        }
-
-
-
-
-
-        mPermissionList = new ArrayList<>();
-        mPermissionList.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
-        mPermissionList.add(Manifest.permission.ACCESS_COARSE_LOCATION);
-        checkPermission();
-
-        MeshUtils.gIvIndex = PreferenceUtility.getMeshIvIndex(getApplicationContext());
-        MeshUtils.gNetkeyInfoList = PreferenceUtility.getNetkeyList(getApplicationContext());
-        MeshUtils.gGroupInfoList = PreferenceUtility.getGroupList(getApplicationContext());
-        MeshUtils.gPdInfoList = PreferenceUtility.getPdList(getApplicationContext());
-        MeshUtils.gLogAdapter = new ArrayAdapter<>(this, R.layout.message);
-
-    }
-
-    private void initView() {
-       blueTooth= findViewById(R.id.view5);
-       bridge= findViewById(R.id.view6);
-
-    }
-
-    private void initListener() {
-        //蓝牙按钮，进入添加产品页面
-        blueTooth.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(GuideActivity.this, AddProductActivity.class);
-                startActivity(intent);
-            }
-        });
-        //网关按钮，进入登录界面
-        bridge.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent inten=new Intent(GuideActivity.this, LoginActivity.class);
-                startActivity(inten);
-            }
-        });
-
-    }
-
-
+public class MeshMainActivity extends BaseActivity implements MeshConfigurationModelListener, MeshProvisionListener {
     private final static String TAG = "Airoha_" + MeshMainActivity.class.getSimpleName();
 
-    private GuideActivity mContext;
+    private MeshMainActivity mContext;
     private static final int REQUEST_ENABLE_BT = 1;
     private static final int REQUEST_ENABLE_GPS = 2;
     private static final int REQUEST_PERMISSION_RETURN_CODE = 5566;
@@ -167,16 +79,16 @@ public class GuideActivity extends BaseActivity implements MeshConfigurationMode
     protected Intent mServiceIntent = null;
 
     private String mNetworkIndex;
-    private GuideActivity.DeviceInfo mTargetDevice;
-    private GuideActivity.DeviceInfo mDevice;
-    private ConcurrentHashMap<String, List<GuideActivity.DeviceInfo>> mResetDeviceMap;
+    private DeviceInfo mTargetDevice;
+    private DeviceInfo mDevice;
+    private ConcurrentHashMap<String, List<DeviceInfo>> mResetDeviceMap;
     private List<String> mScanProvisionDevice;
 
     private boolean isReseting = false;
 
     private Handler mResetHandler;
-    private List<GuideActivity.DeviceInfo> mFailResetDevices;
-    private List<GuideActivity.DeviceInfo> mSuccessResetDevices;
+    private List<DeviceInfo> mFailResetDevices;
+    private List<DeviceInfo> mSuccessResetDevices;
     private boolean mIsConnected;
     private boolean mIsConnectTimeout;
 
@@ -204,6 +116,65 @@ public class GuideActivity extends BaseActivity implements MeshConfigurationMode
     }
 
     @Override
+    public void onCreate( Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.mesh_main_activity);
+        mContext = this;
+
+        final BluetoothManager bluetoothManager =
+                (BluetoothManager) getSystemService(Context.BLUETOOTH_SERVICE);
+        mBluetoothAdapter = bluetoothManager.getAdapter();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            mBluetoothLeScanner = mBluetoothAdapter.getBluetoothLeScanner();
+        }
+
+        //setClickListenerOnActionBar();
+
+        if (!getPackageManager().hasSystemFeature(PackageManager.FEATURE_BLUETOOTH_LE)) {
+            Toast.makeText(this, "ble_not_supported", Toast.LENGTH_SHORT).show();
+        }
+
+        mServiceIntent = new Intent(this, BluetoothLeService.class);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(mServiceIntent);
+        } else {
+            startService(mServiceIntent);
+        }
+
+        setContentView(R.layout.mesh_main_activity);
+
+        mBtnNetwork = (Button) this.findViewById(R.id.btnMeshMainNetwork);
+        mBtnNetwork.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Intent intent = new Intent(MeshMainActivity.this, MeshNetworkListActivity.class);
+                startActivity(intent);
+            }
+        });
+        mBtnScan = (Button) this.findViewById(R.id.btnMeshMainScan);
+        mBtnScan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                final Intent intent = new Intent(MeshMainActivity.this, MeshScanActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+        mPermissionList = new ArrayList<>();
+        mPermissionList.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        mPermissionList.add(Manifest.permission.ACCESS_COARSE_LOCATION);
+        checkPermission();
+
+        MeshUtils.gIvIndex = PreferenceUtility.getMeshIvIndex(getApplicationContext());
+        MeshUtils.gNetkeyInfoList = PreferenceUtility.getNetkeyList(getApplicationContext());
+        MeshUtils.gGroupInfoList = PreferenceUtility.getGroupList(getApplicationContext());
+        MeshUtils.gPdInfoList = PreferenceUtility.getPdList(getApplicationContext());
+        MeshUtils.gLogAdapter = new ArrayAdapter<>(this, R.layout.message);
+
+    }
+    @Override
     protected void onResume() {
         super.onResume();
 //        gpsStatusCheck();
@@ -212,7 +183,7 @@ public class GuideActivity extends BaseActivity implements MeshConfigurationMode
         mFailResetDevices = new ArrayList<>();
         mSuccessResetDevices = new ArrayList<>();
         mResetHandler = new Handler();
-        mServiceConnection = new GuideActivity.myServiceConnection();
+        mServiceConnection = new myServiceConnection();
         mIsServiceConnected = false;
         bindService(
                 mServiceIntent,
@@ -418,7 +389,7 @@ public class GuideActivity extends BaseActivity implements MeshConfigurationMode
                 runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(GuideActivity.this, "failed to init AirohaMesh", Toast.LENGTH_SHORT);
+                        Toast.makeText(MeshMainActivity.this, "failed to init AirohaMesh", Toast.LENGTH_SHORT);
                     }
                 });
             } else {
@@ -434,7 +405,7 @@ public class GuideActivity extends BaseActivity implements MeshConfigurationMode
             mServiceConnection = null;
             mBluetoothLeService = null;
             mIsServiceConnected = false;
-            GuideActivity.this.finish();
+            MeshMainActivity.this.finish();
         }
     }
 
@@ -481,7 +452,7 @@ public class GuideActivity extends BaseActivity implements MeshConfigurationMode
             addLogMsg("connecting to " + _device_addr);
             mIsConnectTimeout = false;
             if(mResetHandler != null) {
-                mResetHandler.postDelayed(new GuideActivity.checkDeviceConnectionTimeout(mNetworkIndex), 5000);
+                mResetHandler.postDelayed(new checkDeviceConnectionTimeout(mNetworkIndex), 5000);
             }
         }
     }
@@ -498,7 +469,7 @@ public class GuideActivity extends BaseActivity implements MeshConfigurationMode
                     isReseting = false;
                     Log.d(TAG, "Reset flow is stopped");
 
-                    for (GuideActivity.DeviceInfo item : mResetDeviceMap.get(mNetworkIndex)) {
+                    for (DeviceInfo item : mResetDeviceMap.get(mNetworkIndex)) {
                         mFailResetDevices.add(item);
                     }
                     mResetDeviceMap.remove(mNetworkIndex);
@@ -512,14 +483,14 @@ public class GuideActivity extends BaseActivity implements MeshConfigurationMode
         if (mResetDeviceMap.size() == 0) {
             return;
         }
-        ConcurrentHashMap.Entry<String, List<GuideActivity.DeviceInfo>> entry = mResetDeviceMap.entrySet().iterator().next();
+        ConcurrentHashMap.Entry<String, List<DeviceInfo>> entry = mResetDeviceMap.entrySet().iterator().next();
         if (entry != null) {
             int target_num = (int) (Math.random() * entry.getValue().size());
             mTargetDevice = entry.getValue().get(target_num);
             mNetworkIndex = entry.getKey();
 
             if(mResetHandler != null) {
-                mResetHandler.postDelayed(new GuideActivity.doConnect(mTargetDevice._deviceBtAddr), 0);
+                mResetHandler.postDelayed(new doConnect(mTargetDevice._deviceBtAddr), 0);
             }
         }
     }
@@ -557,4 +528,6 @@ public class GuideActivity extends BaseActivity implements MeshConfigurationMode
             }
         }
     };
+
+
 }
