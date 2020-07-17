@@ -22,6 +22,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -75,6 +76,7 @@ public class MeshScanActivity extends BaseActivity implements MeshProvisionListe
         }
 
         mMeshDevicesListView = findViewById(R.id.mesh_list);
+
 
     }
     private final static String TAG = "Airoha_" + MeshScanActivity.class.getSimpleName();
@@ -183,6 +185,7 @@ public class MeshScanActivity extends BaseActivity implements MeshProvisionListe
         // Initializes list view adapter.
         mLeDeviceListAdapter = new LeDeviceListAdapter();
         mMeshDevicesListView.setAdapter(mLeDeviceListAdapter);
+
 
         // Ensures Bluetooth is enabled on the device.  If Bluetooth is not currently enabled,
         // fire an intent to display a dialog asking the user to grant permission to enable it.

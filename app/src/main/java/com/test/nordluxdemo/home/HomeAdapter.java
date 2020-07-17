@@ -15,6 +15,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.test.nordluxdemo.R;
+import com.test.nordluxdemo.database.entity.Entity;
 import com.test.nordluxdemo.home.click.ClickActivity;
 import com.test.nordluxdemo.home.moods.MoodsMenuActivity;
 import com.test.nordluxdemo.home.setting.HomeSettingActivity;
@@ -22,6 +23,7 @@ import com.test.nordluxdemo.program.MenuAdapter;
 import com.test.nordluxdemo.setting.room.SettingRoomMenuActivity;
 
 public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
     /**
      * -1表示item折叠，
      */
@@ -49,6 +51,10 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull final RecyclerView.ViewHolder holder, final int position) {
+        Entity entity=new Entity();
+        int i = entity.getLightCount();
+        String s = String.valueOf(i);
+        ((ViewHolder) holder).lightCount.setText(s);
 
 
         /*
@@ -185,12 +191,15 @@ public class HomeAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 
     class ViewHolder extends RecyclerView.ViewHolder {
-        private TextView  txtMoods, txtSetting, txtClick;
+        private TextView  txtMoods, txtSetting, txtClick,lightCount;
         private ImageView imageView, imgRoomIcon,imgRoom;
         private ConstraintLayout relativeLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
+            //灯的数量
+            lightCount=itemView.findViewById(R.id.textView2);
+
             //卡片滑动内容按钮
             imageView = itemView.findViewById(R.id.imageView14);
             relativeLayout = itemView.findViewById(R.id.slide);
