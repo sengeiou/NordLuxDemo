@@ -168,7 +168,7 @@
         android:id="@+id/textView138"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="全部删除"
+        android:text="修改textview，在ttt分支里面提交"
         app:layout_constraintBottom_toTopOf="@+id/textView16"
         app:layout_constraintEnd_toStartOf="@+id/guideline25"
         app:layout_constraintStart_toStartOf="@+id/guideline24"
